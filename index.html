@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSST101 Portfolio - Advanced Presentation and Reasoning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header-content h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-content h2 {
+            color: #666;
+            font-size: 1.4em;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .info-item {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        nav a:hover, nav a.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .projects-grid, .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .project-card, .activity-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .project-card:hover, .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-card h3, .activity-card h3 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .project-card p, .activity-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-link, .activity-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover, .activity-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .add-content {
+            text-align: center;
+            padding: 40px;
+            border: 2px dashed rgba(102, 126, 234, 0.3);
+            border-radius: 15px;
+            background: rgba(102, 126, 234, 0.05);
+            color: #666;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        footer p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px;
+            }
+            
+            .header-content h1 {
+                font-size: 2.2em;
+            }
+            
+            .course-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>CSST101 Portfolio</h1>
+                <h2>Advanced Presentation and Reasoning</h2>
+                <div class="course-info">
+                    <div class="info-item">AY 2025-2026</div>
+                    <div class="info-item">First Semester</div>
+                    <div class="info-item">Your Name</div>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('about')" class="nav-link active">About</a></li>
+                <li><a href="#" onclick="showSection('projects')" class="nav-link">Projects</a></li>
+                <li><a href="#" onclick="showSection('activities')" class="nav-link">Activities</a></li>
+                <li><a href="#" onclick="showSection('assignments')" class="nav-link">Assignments</a></li>
+                <li><a href="#" onclick="showSection('reflection')" class="nav-link">Reflection</a></li>
+            </ul>
+        </nav>
+
+        <div id="about" class="section active">
+            <h2>About This Portfolio</h2>
+            <div class="about-content">
+                <p>Welcome to my CSST101: Advanced Presentation and Reasoning portfolio. This collection showcases my journey through the course, highlighting key projects, activities, and learning experiences.</p>
+                
+                <p>Throughout this semester, I will be developing skills in advanced presentation techniques, logical reasoning, critical thinking, and effective communication in computer science contexts.</p>
+
+                <div class="skills">
+                    <span class="skill-tag">Logical Reasoning</span>
+                    <span class="skill-tag">Critical Thinking</span>
+                    <span class="skill-tag">Presentation Skills</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Communication</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="section">
+            <h2>Course Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Project 1: Logic Systems Analysis</h3>
+                    <p>A comprehensive analysis of different logical systems and their applications in computer science reasoning.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Project 2: Presentation Framework</h3>
+                    <p>Development of an advanced presentation framework for technical topics in computer science.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+                
+                <div class="add-content">
+                    <p>More projects will be added as the semester progresses...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="activities" class="section">
+            <h2>Course Activities</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <h3>Activity 1: Reasoning Exercises</h3>
+                    <p>Collection of logical reasoning exercises and problem-solving activities completed during the course.</p>
+                    <a href="#" class="activity-link">View Activity</a>
+                </div>
+                
+                <div class="activity-card">
+                    <h3>Activity 2: Group Discussions</h3>
+                    <p>Documentation and insights from collaborative reasoning sessions and group problem-solving activities.</p>
+                    <a href="#" class="activity-link">View Activity</a>
+                </div>
+                
+                <div class="add-content">
+                    <p>Additional activities will be documented here throughout the semester...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="assignments" class="section">
+            <h2>Assignments</h2>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <h3>Assignment 1: Critical Analysis</h3>
+                    <p>Critical analysis of reasoning patterns in computer science literature and research papers.</p>
+                    <a href="#" class="activity-link">View Assignment</a>
+                </div>
+                
+                <div class="activity-card">
+                    <h3>Assignment 2: Presentation Design</h3>
+                    <p>Design and implementation of an advanced presentation on a chosen computer science topic.</p>
+                    <a href="#" class="activity-link">View Assignment</a>
+                </div>
+                
+                <div class="add-content">
+                    <p>Future assignments will be added here as they are completed...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="reflection" class="section">
+            <h2>Course Reflection</h2>
+            <div class="about-content">
+                <p>This section will contain my personal reflections on the learning journey throughout CSST101. I will document key insights, challenges overcome, and skills developed during the course.</p>
+                
+                <p>As the semester progresses, I will update this section with deeper insights into how the course has shaped my understanding of advanced presentation techniques and reasoning methodologies.</p>
+                
+                <div class="add-content">
+                    <p>Detailed reflections will be added throughout the semester...</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 CSST101 Portfolio | Advanced Presentation and Reasoning</p>
+            <div class="social-links">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Email</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+        }
+
+        // Smooth scrolling animation for better user experience
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.project-card, .activity-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 0.6s ease-out';
+                    }
+                });
+            });
+            
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -20,7 +20,7 @@ This repository contains my academic portfolio for CSST101, showcasing projects,
 
 ## Portfolio Website
 
-🌐 **Live Portfolio**: [https://somarjez.github.io/CSST101_RAMOS-JEZREELRAY2025-2026_BSCS3A](https://jezreelray-ramos.github.io/CSST101_RAMOS-JEZREELRAY2025-2026_BSCS3A)
+🌐 **Live Portfolio**: [https://somarjez.github.io/CSST101_RAMOS-JEZREELRAY2025-2026_BSCS3A](https://github.com/somarjez/CSST101_RAMOS-JEZREELRAY2025-2026_BSCS3A)
 
 The portfolio website includes:
 - **Projects**: Major course projects and their documentation

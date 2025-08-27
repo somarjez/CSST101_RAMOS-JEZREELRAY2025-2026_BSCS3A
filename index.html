@@ -12,21 +12,21 @@
     
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #f59e0b;
-            --accent: #06b6d4;
+            --primary: #00d9ff;
+            --primary-dark: #00b8d4;
+            --secondary: #ff6b6b;
+            --accent: #4ecdc4;
             --success: #10b981;
             --warning: #f59e0b;
-            --dark: #0f172a;
-            --darker: #0c1220;
-            --darkest: #070b14;
+            --dark: #0a0e27;
+            --darker: #070b1f;
+            --darkest: #04081a;
             --light: #f8fafc;
             --gray: #64748b;
             --gray-light: #94a3b8;
             --gradient: linear-gradient(135deg, var(--primary), var(--accent));
             --gradient-dark: linear-gradient(135deg, var(--dark), var(--darker));
-            --gradient-academic: linear-gradient(135deg, #667eea, #764ba2);
+            --gradient-purple: linear-gradient(135deg, #667eea, #764ba2);
             --glass: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
         }
@@ -72,9 +72,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(78, 205, 196, 0.12) 0%, transparent 50%),
                 radial-gradient(circle at 90% 70%, rgba(102, 126, 234, 0.08) 0%, transparent 50%);
             animation: float 25s ease-in-out infinite;
         }
@@ -87,8 +87,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(45deg, transparent 49%, rgba(99, 102, 241, 0.03) 50%, transparent 51%),
-                linear-gradient(-45deg, transparent 49%, rgba(6, 182, 212, 0.03) 50%, transparent 51%);
+                linear-gradient(45deg, transparent 49%, rgba(0, 217, 255, 0.03) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(78, 205, 196, 0.03) 50%, transparent 51%);
             background-size: 60px 60px;
             animation: grid-move 30s linear infinite;
         }
@@ -112,14 +112,14 @@
             width: 100%;
             z-index: 1000;
             padding: 1.2rem 2rem;
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(10, 14, 39, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(10, 14, 39, 0.95);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             border-bottom: 1px solid var(--primary);
         }
@@ -344,7 +344,7 @@
 
         .btn-primary {
             background: var(--gradient);
-            color: var(--light);
+            color: var(--dark);
             border: 2px solid transparent;
         }
 
@@ -356,7 +356,7 @@
 
         .btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
         }
 
         .scroll-indicator {
@@ -412,10 +412,57 @@
 
         /* About Section */
         .about-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
             margin-bottom: 4rem;
+        }
+
+        .about-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .course-icon {
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: var(--dark);
+            border: 4px solid var(--primary);
+            box-shadow: 
+                0 20px 40px rgba(0, 217, 255, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+        }
+
+        .course-icon:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 
+                0 30px 60px rgba(0, 217, 255, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: var(--gradient);
+            border-radius: 30px;
+            opacity: 0.1;
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
         }
 
         .about-text h3 {
@@ -437,18 +484,77 @@
             line-height: 1.8;
         }
 
-        .course-info-card {
+        .course-info {
             background: var(--glass);
             border: 1px solid var(--glass-border);
-            padding: 2.5rem;
-            border-radius: 20px;
-            margin: 3rem auto;
-            max-width: 600px;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
             backdrop-filter: blur(10px);
+        }
+
+        .course-info h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .course-info .semester {
+            background: var(--gradient);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .progress-bar {
+            background: rgba(10, 14, 39, 0.5);
+            border-radius: 10px;
+            height: 12px;
+            margin: 1.5rem 0;
+            overflow: hidden;
             position: relative;
         }
 
-        .course-info-card::before {
+        .progress-fill {
+            background: var(--gradient);
+            height: 100%;
+            width: 25%;
+            border-radius: 10px;
+            animation: progressGlow 2s ease-in-out infinite alternate;
+            transition: width 1s ease;
+        }
+
+        @keyframes progressGlow {
+            0% { box-shadow: 0 0 10px rgba(0, 217, 255, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.8); }
+        }
+
+        /* Enhanced Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(78, 205, 196, 0.05));
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-category::before {
             content: '';
             position: absolute;
             top: 0;
@@ -456,91 +562,56 @@
             width: 100%;
             height: 4px;
             background: var(--gradient);
-            border-radius: 20px 20px 0 0;
         }
 
-        .course-info-card h4 {
+        .skill-category:hover {
+            transform: translateY(-15px) scale(1.02);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(78, 205, 196, 0.1));
+            box-shadow: 0 25px 50px rgba(0, 217, 255, 0.15);
+        }
+
+        .skill-category h4 {
             color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            justify-content: center;
+            font-weight: 700;
         }
 
-        .course-info-card .semester-badge {
+        .skill-icon {
+            width: 40px;
+            height: 40px;
             background: var(--gradient);
-            color: var(--light);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-left: auto;
-        }
-
-        .progress-container {
-            margin-top: 2rem;
-            background: rgba(99, 102, 241, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        .progress-bar {
-            background: rgba(15, 23, 42, 0.5);
-            border-radius: 8px;
-            height: 8px;
-            overflow: hidden;
-            margin-bottom: 0.8rem;
-        }
-
-        .progress-fill {
-            background: var(--gradient);
-            height: 100%;
-            width: 25%;
-            border-radius: 8px;
-            transition: width 1s ease;
-            animation: progressGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes progressGlow {
-            0% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.5); }
-            100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.8); }
-        }
-
-        .progress-text {
-            font-size: 0.9rem;
-            color: var(--gray-light);
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .skills {
+            border-radius: 10px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 1rem;
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
             flex-wrap: wrap;
-            margin-top: 3rem;
+            gap: 0.8rem;
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15));
+            background: rgba(0, 217, 255, 0.15);
             color: var(--primary);
             padding: 0.8rem 1.2rem;
             border-radius: 25px;
             font-size: 0.9rem;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            border: 1px solid rgba(0, 217, 255, 0.3);
             font-weight: 500;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
 
         .skill-tag:hover {
-            background: var(--gradient);
-            color: var(--light);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            background: rgba(0, 217, 255, 0.25);
+            transform: scale(1.05);
         }
 
         /* Enhanced Projects/Activities Grid */
@@ -551,7 +622,7 @@
         }
 
         .project-card, .activity-card {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.05));
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(78, 205, 196, 0.05));
             border-radius: 24px;
             padding: 2.5rem;
             border: 1px solid var(--glass-border);
@@ -573,8 +644,8 @@
 
         .project-card:hover, .activity-card:hover {
             transform: translateY(-20px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+            box-shadow: 0 30px 60px rgba(0, 217, 255, 0.2);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(78, 205, 196, 0.1));
         }
 
         .project-header, .activity-header {
@@ -593,8 +664,8 @@
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-            color: var(--light);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            color: var(--dark);
+            box-shadow: 0 10px 20px rgba(0, 217, 255, 0.3);
         }
 
         .status-badge {
@@ -632,62 +703,82 @@
             font-size: 1.1rem;
         }
 
-        .project-link, .activity-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gradient);
-            color: var(--light);
-            padding: 0.8rem 1.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--gray);
+            font-size: 1.4rem;
             transition: all 0.3s ease;
+            text-decoration: none;
+            padding: 0.8rem;
+            border-radius: 10px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
         }
 
-        .project-link:hover, .activity-link:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+        .project-link:hover {
+            color: var(--primary);
+            background: rgba(0, 217, 255, 0.1);
+            transform: scale(1.1);
         }
 
-        .project-link::after, .activity-link::after {
-            content: '→';
-            transition: transform 0.2s ease;
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
         }
 
-        .project-link:hover::after, .activity-link:hover::after {
-            transform: translateX(3px);
+        .tech-tag {
+            background: rgba(255, 107, 107, 0.15);
+            color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            font-weight: 500;
         }
 
         .add-content {
             text-align: center;
-            padding: 3rem;
-            border: 2px dashed rgba(99, 102, 241, 0.3);
-            border-radius: 20px;
-            background: rgba(99, 102, 241, 0.05);
+            padding: 4rem 2rem;
+            border: 2px dashed rgba(0, 217, 255, 0.3);
+            border-radius: 24px;
+            background: rgba(0, 217, 255, 0.05);
             color: var(--gray-light);
-            margin: 2rem 0;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
 
         .add-content:hover {
             border-color: var(--primary);
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(0, 217, 255, 0.1);
             transform: scale(1.02);
+        }
+
+        .add-content i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .add-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
         .add-content p {
             margin: 0;
             font-size: 1.1rem;
-            font-weight: 500;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
             border-top: 1px solid var(--glass-border);
             background: var(--darkest);
         }
@@ -695,31 +786,6 @@
         footer p {
             color: var(--gray);
             margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
-
-        .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            border: 1px solid var(--glass-border);
-            background: var(--glass);
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            background: rgba(99, 102, 241, 0.1);
-            transform: translateY(-2px);
         }
 
         /* Animations */
@@ -757,6 +823,12 @@
                 padding: 6rem 1.5rem;
             }
 
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 4rem;
+            }
+
             .projects-grid, .activities-grid {
                 grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
@@ -769,7 +841,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(15, 23, 42, 0.95);
+                background: rgba(10, 14, 39, 0.95);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 2rem;
@@ -793,6 +865,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
             section {
                 padding: 4rem 1rem;
             }
@@ -803,6 +879,12 @@
 
             .hero-title {
                 font-size: clamp(2.8rem, 8vw, 5rem);
+            }
+
+            .course-icon {
+                width: 280px;
+                height: 280px;
+                font-size: 6rem;
             }
         }
 
@@ -816,7 +898,7 @@
                 font-size: 1rem;
             }
 
-            .course-info-card {
+            .course-info {
                 padding: 1.5rem;
             }
         }
@@ -854,67 +936,6 @@
             <p class="hero-subtitle">Advanced Presentation & Reasoning</p>
             <p class="hero-description">
                 Showcasing my academic journey through advanced presentation techniques, 
-                logical reasoning, and critical thinking in computer science contexts.
+                logical reasoning methodologies, and critical thinking applications in computer science contexts.
             </p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i>
-                    Explore Portfolio
-                </a>
-                <a href="#about" class="btn btn-secondary">
-                    <i class="fas fa-user-graduate"></i>
-                    About Course
-                </a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span class="scroll-text">Scroll Down</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="fade-in">
-        <h2 class="section-title">About This Portfolio</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Advanced Presentation & <span class="highlight">Reasoning</span></h3>
-                <p>
-                    Welcome to my CSST101 academic portfolio. This comprehensive collection documents 
-                    my learning journey through advanced presentation techniques, logical reasoning 
-                    methodologies, and critical thinking applications in computer science.
-                </p>
-                <p>
-                    Throughout this course, I develop essential skills in constructing logical arguments, 
-                    delivering professional presentations, and applying reasoning principles to 
-                    complex computational problems and system analysis.
-                </p>
-            </div>
-
-            <div class="course-info-card">
-                <h4>
-                    <i class="fas fa-graduation-cap"></i>
-                    Course Information
-                    <span class="semester-badge">1st Sem</span>
-                </h4>
-                <p style="color: var(--gray-light); margin: 1rem 0 0 0; text-align: center;">
-                    <strong>CSST101:</strong> Advanced Presentation and Reasoning<br>
-                    <strong>Academic Year:</strong> 2025-2026 • <strong>Student:</strong> Your Name
-                </p>
-
-                <div class="progress-container">
-                    <div class="progress-bar">
-                        <div class="progress-fill"></div>
-                    </div>
-                    <div class="progress-text">Course Progress: 25% Complete</div>
-                </div>
-            </div>
-
-            <div class="skills">
-                <span class="skill-tag">Logical Reasoning</span>
-                <span class="skill-tag">Critical Analysis</span>
-                <span class="skill-tag">Presentation Design</span>
-                <span class="skill-tag">Argumentation</span>
-                <span class="skill-tag">Problem Analysis</span>
-                <span class="skill-tag">Technical Communication</span>
-                <span class="skill-tag">Academic Writing</span>
+            <div class

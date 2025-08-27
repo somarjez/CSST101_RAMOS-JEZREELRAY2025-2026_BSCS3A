@@ -57,9 +57,9 @@ This portfolio demonstrates achievement of key course objectives:
 
 ## Contact Information
 
-- **Email**: [your.email@university.edu]
-- **GitHub**: [@your-username](https://github.com/your-username)
-- **LinkedIn**: [Your LinkedIn Profile]
+- **Email**: [jezreelramoz@gmail.com]
+- **GitHub**: [@somarjez](https://github.com/somarjez)
+- **LinkedIn**: [www.linkedin.com/in/jezreel-ramos-49b029350]
 
 ## Updates
 

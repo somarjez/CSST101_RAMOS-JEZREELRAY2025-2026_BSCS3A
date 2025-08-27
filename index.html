@@ -4,460 +4,917 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSST101 Portfolio - Advanced Presentation and Reasoning</title>
+    <meta name="description" content="CSST101: Advanced Presentation and Reasoning course portfolio showcasing academic projects and learning journey">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f59e0b;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --darker: #0c1220;
+            --darkest: #070b14;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+            --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+            --gradient-dark: linear-gradient(135deg, var(--dark), var(--darker));
+            --gradient-academic: linear-gradient(135deg, #667eea, #764ba2);
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
             line-height: 1.6;
-            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        /* Enhanced Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--gradient-dark);
         }
 
-        .header-content h1 {
-            color: #2c3e50;
-            font-size: 2.8em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 90% 70%, rgba(102, 126, 234, 0.08) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite;
         }
 
-        .header-content h2 {
-            color: #666;
-            font-size: 1.4em;
-            font-weight: 400;
-            margin-bottom: 20px;
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, transparent 49%, rgba(99, 102, 241, 0.03) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(6, 182, 212, 0.03) 50%, transparent 51%);
+            background-size: 60px 60px;
+            animation: grid-move 30s linear infinite;
         }
 
-        .course-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 25px;
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(40px, -40px) rotate(90deg); }
+            50% { transform: translate(-30px, 30px) rotate(180deg); }
+            75% { transform: translate(30px, -20px) rotate(270deg); }
         }
 
-        .info-item {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            transition: all 0.3s ease;
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
         }
 
-        .info-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
-
+        /* Enhanced Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
         }
 
-        nav ul {
-            list-style: none;
+        nav.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .nav-container {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 12px 25px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        nav a:hover, nav a.active {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section h2 {
-            color: #2c3e50;
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            text-align: center;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--gradient);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
         }
 
-        .projects-grid, .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+        .logo::after {
+            content: '_';
+            animation: blink 1.5s infinite;
         }
 
-        .project-card, .activity-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
-        .project-card:hover, .activity-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .project-card h3, .activity-card h3 {
-            color: #2c3e50;
-            font-size: 1.4em;
-            margin-bottom: 15px;
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
         }
 
-        .project-card p, .activity-card p {
-            color: #666;
-            margin-bottom: 20px;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+            transition: width 0.3s ease;
         }
 
-        .project-link, .activity-link {
-            display: inline-block;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 80%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: var(--glass);
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--light), var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--gray-light);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.8s forwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: none;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
         }
 
-        .project-link:hover, .activity-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: var(--light);
+            border: 2px solid transparent;
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: var(--glass);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-text {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Sections */
+        section {
+            padding: 8rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* About Section */
         .about-content {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            margin-bottom: 4rem;
         }
 
-        .about-content p {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 25px;
+        .about-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .about-text .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .course-info-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 3rem auto;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .course-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .course-info-card h4 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .course-info-card .semester-badge {
+            background: var(--gradient);
+            color: var(--light);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .progress-container {
+            margin-top: 2rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .progress-bar {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 8px;
+            height: 8px;
+            overflow: hidden;
+            margin-bottom: 0.8rem;
+        }
+
+        .progress-fill {
+            background: var(--gradient);
+            height: 100%;
+            width: 25%;
+            border-radius: 8px;
+            transition: width 1s ease;
+            animation: progressGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes progressGlow {
+            0% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.8); }
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--gray-light);
+            text-align: center;
+            font-weight: 500;
         }
 
         .skills {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 3rem;
         }
 
         .skill-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.15));
+            color: var(--primary);
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-tag:hover {
+            background: var(--gradient);
+            color: var(--light);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Enhanced Projects/Activities Grid */
+        .projects-grid, .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card, .activity-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.05));
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card::before, .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--gradient);
+        }
+
+        .project-card:hover, .activity-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
+        }
+
+        .project-header, .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon, .activity-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--light);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .status-badge {
+            background: var(--success);
+            color: var(--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
             font-weight: 600;
-            font-size: 0.9em;
+        }
+
+        .status-badge.pending {
+            background: var(--warning);
+        }
+
+        .status-badge.draft {
+            background: var(--gray);
+        }
+
+        .status-badge.in-progress {
+            background: var(--accent);
+        }
+
+        .project-title, .activity-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+
+        .project-description, .activity-description {
+            color: var(--gray-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .project-link, .activity-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient);
+            color: var(--light);
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover, .activity-link:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .project-link::after, .activity-link::after {
+            content: '→';
+            transition: transform 0.2s ease;
+        }
+
+        .project-link:hover::after, .activity-link:hover::after {
+            transform: translateX(3px);
         }
 
         .add-content {
             text-align: center;
-            padding: 40px;
-            border: 2px dashed rgba(102, 126, 234, 0.3);
-            border-radius: 15px;
-            background: rgba(102, 126, 234, 0.05);
-            color: #666;
-            font-style: italic;
-            margin: 20px 0;
+            padding: 3rem;
+            border: 2px dashed rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            background: rgba(99, 102, 241, 0.05);
+            color: var(--gray-light);
+            margin: 2rem 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
+        .add-content:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            transform: scale(1.02);
+        }
+
+        .add-content p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
         footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--glass-border);
+            background: var(--darkest);
         }
 
         footer p {
-            color: #666;
-            margin-bottom: 15px;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
         }
 
-        .social-links {
+        .footer-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 2rem;
+            margin-top: 1.5rem;
         }
 
-        .social-links a {
-            color: #667eea;
+        .footer-links a {
+            color: var(--gray);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass);
         }
 
-        .social-links a:hover {
-            color: #764ba2;
+        .footer-links a:hover {
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
             transform: translateY(-2px);
         }
 
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            section {
+                padding: 6rem 1.5rem;
+            }
+
+            .projects-grid, .activities-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            header {
-                padding: 20px;
-            }
-            
-            .header-content h1 {
-                font-size: 2.2em;
-            }
-            
-            .course-info {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
-                gap: 15px;
+                padding: 2rem;
+                border-top: 1px solid var(--glass-border);
             }
-            
-            nav ul {
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .cta-buttons {
                 flex-direction: column;
-                gap: 10px;
+                align-items: center;
             }
-            
-            .section {
-                padding: 20px;
+
+            .projects-grid, .activities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2.8rem;
+            }
+
+            .hero-title {
+                font-size: clamp(2.8rem, 8vw, 5rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .course-info-card {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <h1>CSST101 Portfolio</h1>
-                <h2>Advanced Presentation and Reasoning</h2>
-                <div class="course-info">
-                    <div class="info-item">AY 2025-2026</div>
-                    <div class="info-item">First Semester</div>
-                    <div class="info-item">Your Name</div>
-                </div>
-            </div>
-        </header>
+    <div class="bg-animation"></div>
 
-        <nav>
-            <ul>
-                <li><a href="#" onclick="showSection('about')" class="nav-link active">About</a></li>
-                <li><a href="#" onclick="showSection('projects')" class="nav-link">Projects</a></li>
-                <li><a href="#" onclick="showSection('activities')" class="nav-link">Activities</a></li>
-                <li><a href="#" onclick="showSection('assignments')" class="nav-link">Assignments</a></li>
-                <li><a href="#" onclick="showSection('reflection')" class="nav-link">Reflection</a></li>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">CSST101_</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#assignments">Assignments</a></li>
+                <li><a href="#reflection">Reflection</a></li>
             </ul>
-        </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-        <div id="about" class="section active">
-            <h2>About This Portfolio</h2>
-            <div class="about-content">
-                <p>Welcome to my CSST101: Advanced Presentation and Reasoning portfolio. This collection showcases my journey through the course, highlighting key projects, activities, and learning experiences.</p>
-                
-                <p>Throughout this semester, I will be developing skills in advanced presentation techniques, logical reasoning, critical thinking, and effective communication in computer science contexts.</p>
-
-                <div class="skills">
-                    <span class="skill-tag">Logical Reasoning</span>
-                    <span class="skill-tag">Critical Thinking</span>
-                    <span class="skill-tag">Presentation Skills</span>
-                    <span class="skill-tag">Problem Solving</span>
-                    <span class="skill-tag">Communication</span>
-                </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <div class="status-dot"></div>
+                <span>Academic Portfolio • AY 2025-2026</span>
+            </div>
+            <h1 class="hero-title">CSST101</h1>
+            <p class="hero-subtitle">Advanced Presentation & Reasoning</p>
+            <p class="hero-description">
+                Showcasing my academic journey through advanced presentation techniques, 
+                logical reasoning, and critical thinking in computer science contexts.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Explore Portfolio
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    <i class="fas fa-user-graduate"></i>
+                    About Course
+                </a>
             </div>
         </div>
-
-        <div id="projects" class="section">
-            <h2>Course Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Project 1: Logic Systems Analysis</h3>
-                    <p>A comprehensive analysis of different logical systems and their applications in computer science reasoning.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Project 2: Presentation Framework</h3>
-                    <p>Development of an advanced presentation framework for technical topics in computer science.</p>
-                    <a href="#" class="project-link">View Project</a>
-                </div>
-                
-                <div class="add-content">
-                    <p>More projects will be added as the semester progresses...</p>
-                </div>
-            </div>
+        <div class="scroll-indicator">
+            <span class="scroll-text">Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
         </div>
+    </section>
 
-        <div id="activities" class="section">
-            <h2>Course Activities</h2>
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <h3>Activity 1: Reasoning Exercises</h3>
-                    <p>Collection of logical reasoning exercises and problem-solving activities completed during the course.</p>
-                    <a href="#" class="activity-link">View Activity</a>
-                </div>
-                
-                <div class="activity-card">
-                    <h3>Activity 2: Group Discussions</h3>
-                    <p>Documentation and insights from collaborative reasoning sessions and group problem-solving activities.</p>
-                    <a href="#" class="activity-link">View Activity</a>
-                </div>
-                
-                <div class="add-content">
-                    <p>Additional activities will be documented here throughout the semester...</p>
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2 class="section-title">About This Portfolio</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Advanced Presentation & <span class="highlight">Reasoning</span></h3>
+                <p>
+                    Welcome to my CSST101 academic portfolio. This comprehensive collection documents 
+                    my learning journey through advanced presentation techniques, logical reasoning 
+                    methodologies, and critical thinking applications in computer science.
+                </p>
+                <p>
+                    Throughout this course, I develop essential skills in constructing logical arguments, 
+                    delivering professional presentations, and applying reasoning principles to 
+                    complex computational problems and system analysis.
+                </p>
+            </div>
+
+            <div class="course-info-card">
+                <h4>
+                    <i class="fas fa-graduation-cap"></i>
+                    Course Information
+                    <span class="semester-badge">1st Sem</span>
+                </h4>
+                <p style="color: var(--gray-light); margin: 1rem 0 0 0; text-align: center;">
+                    <strong>CSST101:</strong> Advanced Presentation and Reasoning<br>
+                    <strong>Academic Year:</strong> 2025-2026 • <strong>Student:</strong> Your Name
+                </p>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">Course Progress: 25% Complete</div>
                 </div>
             </div>
-        </div>
 
-        <div id="assignments" class="section">
-            <h2>Assignments</h2>
-            <div class="activities-grid">
-                <div class="activity-card">
-                    <h3>Assignment 1: Critical Analysis</h3>
-                    <p>Critical analysis of reasoning patterns in computer science literature and research papers.</p>
-                    <a href="#" class="activity-link">View Assignment</a>
-                </div>
-                
-                <div class="activity-card">
-                    <h3>Assignment 2: Presentation Design</h3>
-                    <p>Design and implementation of an advanced presentation on a chosen computer science topic.</p>
-                    <a href="#" class="activity-link">View Assignment</a>
-                </div>
-                
-                <div class="add-content">
-                    <p>Future assignments will be added here as they are completed...</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="reflection" class="section">
-            <h2>Course Reflection</h2>
-            <div class="about-content">
-                <p>This section will contain my personal reflections on the learning journey throughout CSST101. I will document key insights, challenges overcome, and skills developed during the course.</p>
-                
-                <p>As the semester progresses, I will update this section with deeper insights into how the course has shaped my understanding of advanced presentation techniques and reasoning methodologies.</p>
-                
-                <div class="add-content">
-                    <p>Detailed reflections will be added throughout the semester...</p>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>&copy; 2025 CSST101 Portfolio | Advanced Presentation and Reasoning</p>
-            <div class="social-links">
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Email</a>
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Remove active class from all nav links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to clicked nav link
-            event.target.classList.add('active');
-        }
-
-        // Smooth scrolling animation for better user experience
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.project-card, .activity-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeIn 0.6s ease-out';
-                    }
-                });
-            });
-            
-            cards.forEach(card => {
-                observer.observe(card);
-            });
-        });
-    </script>
-</body>
-</html>
+            <div class="skills">
+                <span class="skill-tag">Logical Reasoning</span>
+                <span class="skill-tag">Critical Analysis</span>
+                <span class="skill-tag">Presentation Design</span>
+                <span class="skill-tag">Argumentation</span>
+                <span class="skill-tag">Problem Analysis</span>
+                <span class="skill-tag">Technical Communication</span>
+                <span class="skill-tag">Academic Writing</span>

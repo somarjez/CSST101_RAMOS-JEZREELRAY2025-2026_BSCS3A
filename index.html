@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSST101 Portfolio - Advanced Presentation and Reasoning</title>
-    <meta name="description" content="CSST101: Advanced Presentation and Reasoning course portfolio showcasing academic projects and learning journey">
+    <title>CSST101 Academic Portfolio - Jezreel R. Ramos</title>
+    <meta name="description" content="Academic Portfolio for CSST101: Advanced Presentation and Reasoning by Jezreel R. Ramos">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,23 +12,23 @@
     
     <style>
         :root {
-            --primary: #00d9ff;
-            --primary-dark: #00b8d4;
-            --secondary: #ff6b6b;
-            --accent: #4ecdc4;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
             --success: #10b981;
             --warning: #f59e0b;
-            --dark: #0a0e27;
-            --darker: #070b1f;
-            --darkest: #04081a;
+            --dark: #0f172a;
+            --darker: #0c1220;
+            --darkest: #08101f;
             --light: #f8fafc;
             --gray: #64748b;
             --gray-light: #94a3b8;
             --gradient: linear-gradient(135deg, var(--primary), var(--accent));
             --gradient-dark: linear-gradient(135deg, var(--dark), var(--darker));
             --gradient-purple: linear-gradient(135deg, #667eea, #764ba2);
-            --glass: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
         }
 
         * {
@@ -72,9 +72,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(78, 205, 196, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
                 radial-gradient(circle at 90% 70%, rgba(102, 126, 234, 0.08) 0%, transparent 50%);
             animation: float 25s ease-in-out infinite;
         }
@@ -87,8 +87,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(45deg, transparent 49%, rgba(0, 217, 255, 0.03) 50%, transparent 51%),
-                linear-gradient(-45deg, transparent 49%, rgba(78, 205, 196, 0.03) 50%, transparent 51%);
+                linear-gradient(45deg, transparent 49%, rgba(99, 102, 241, 0.03) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(6, 182, 212, 0.03) 50%, transparent 51%);
             background-size: 60px 60px;
             animation: grid-move 30s linear infinite;
         }
@@ -105,21 +105,21 @@
             100% { transform: translate(60px, 60px); }
         }
 
-        /* Enhanced Navigation */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             padding: 1.2rem 2rem;
-            background: rgba(10, 14, 39, 0.8);
+            background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             transition: all 0.3s ease;
         }
 
         nav.scrolled {
-            background: rgba(10, 14, 39, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             border-bottom: 1px solid var(--primary);
         }
@@ -133,30 +133,25 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
+            font-size: 1.5rem;
+            font-weight: 800;
             background: var(--gradient);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'JetBrains Mono', monospace;
-            position: relative;
         }
 
-        .logo::after {
-            content: '_';
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        .course-info {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
@@ -182,8 +177,7 @@
             transition: opacity 0.3s ease;
         }
 
-        .nav-links a:hover::before,
-        .nav-links a.active::before {
+        .nav-links a:hover::before {
             opacity: 1;
         }
 
@@ -200,8 +194,7 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
+        .nav-links a:hover::after {
             width: 80%;
         }
 
@@ -221,7 +214,7 @@
             background: var(--glass);
         }
 
-        /* Enhanced Hero Section */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -233,7 +226,7 @@
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 1000px;
             animation: fadeInUp 1s ease-out;
         }
 
@@ -247,7 +240,7 @@
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 500;
-            color: var(--primary);
+            color: var(--accent);
             margin-bottom: 2rem;
             backdrop-filter: blur(10px);
             opacity: 0;
@@ -269,9 +262,9 @@
         }
 
         .hero-title {
-            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--light), var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
@@ -282,19 +275,28 @@
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--gray-light);
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
             opacity: 0;
             animation: fadeInUp 1s ease-out 0.6s forwards;
         }
 
+        .hero-course {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.7s forwards;
+        }
+
         .hero-description {
-            font-size: 1.3rem;
-            color: var(--gray);
+            font-size: 1.2rem;
+            color: var(--gray-light);
             margin-bottom: 3rem;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             opacity: 0;
@@ -344,7 +346,7 @@
 
         .btn-primary {
             background: var(--gradient);
-            color: var(--dark);
+            color: var(--light);
             border: 2px solid transparent;
         }
 
@@ -356,27 +358,7 @@
 
         .btn:hover {
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-text {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.8;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
         }
 
         /* Sections */
@@ -387,7 +369,7 @@
         }
 
         .section-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 900;
             text-align: center;
             margin-bottom: 4rem;
@@ -413,7 +395,7 @@
         /* About Section */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 2fr;
             gap: 6rem;
             align-items: center;
             margin-bottom: 4rem;
@@ -424,49 +406,29 @@
             text-align: center;
         }
 
-        .course-icon {
-            width: 350px;
-            height: 350px;
+        .profile-img {
+            width: 300px;
+            height: 300px;
             border-radius: 20px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-            color: var(--dark);
+            object-fit: cover;
             border: 4px solid var(--primary);
             box-shadow: 
-                0 20px 40px rgba(0, 217, 255, 0.3),
+                0 20px 40px rgba(99, 102, 241, 0.3),
                 0 0 0 1px rgba(255, 255, 255, 0.1);
             transition: all 0.4s ease;
             position: relative;
             z-index: 1;
-            margin: 0 auto;
         }
 
-        .course-icon:hover {
+        .profile-img:hover {
             transform: scale(1.05) rotate(2deg);
             box-shadow: 
-                0 30px 60px rgba(0, 217, 255, 0.4),
+                0 30px 60px rgba(99, 102, 241, 0.4),
                 0 0 0 1px rgba(255, 255, 255, 0.2);
         }
 
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            background: var(--gradient);
-            border-radius: 30px;
-            opacity: 0.1;
-            z-index: 0;
-            animation: float 6s ease-in-out infinite;
-        }
-
         .about-text h3 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
             color: var(--primary);
             font-weight: 800;
@@ -478,13 +440,13 @@
         }
 
         .about-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray-light);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
         }
 
-        .course-info {
+        .course-info-box {
             background: var(--glass);
             border: 1px solid var(--glass-border);
             padding: 2rem;
@@ -493,7 +455,7 @@
             backdrop-filter: blur(10px);
         }
 
-        .course-info h4 {
+        .course-info-box h4 {
             color: var(--primary);
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
@@ -502,9 +464,9 @@
             gap: 0.5rem;
         }
 
-        .course-info .semester {
+        .course-info-box .year {
             background: var(--gradient);
-            color: var(--dark);
+            color: var(--light);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -512,41 +474,60 @@
             margin-left: auto;
         }
 
-        .progress-bar {
-            background: rgba(10, 14, 39, 0.5);
-            border-radius: 10px;
-            height: 12px;
-            margin: 1.5rem 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-fill {
-            background: var(--gradient);
-            height: 100%;
-            width: 25%;
-            border-radius: 10px;
-            animation: progressGlow 2s ease-in-out infinite alternate;
-            transition: width 1s ease;
-        }
-
-        @keyframes progressGlow {
-            0% { box-shadow: 0 0 10px rgba(0, 217, 255, 0.5); }
-            100% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.8); }
-        }
-
-        /* Enhanced Skills Grid */
-        .skills-grid {
+        /* Learning Objectives */
+        .objectives-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .skill-category {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(78, 205, 196, 0.05));
-            padding: 2.5rem;
+        .objective-card {
+            background: var(--glass);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .objective-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .objective-card h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .objective-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        /* Assignments/Activities Section */
+        .assignments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .assignment-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.05));
             border-radius: 20px;
+            padding: 2.5rem;
             border: 1px solid var(--glass-border);
             transition: all 0.4s ease;
             position: relative;
@@ -554,7 +535,7 @@
             backdrop-filter: blur(10px);
         }
 
-        .skill-category::before {
+        .assignment-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -564,215 +545,219 @@
             background: var(--gradient);
         }
 
-        .skill-category:hover {
+        .assignment-card:hover {
             transform: translateY(-15px) scale(1.02);
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(78, 205, 196, 0.1));
-            box-shadow: 0 25px 50px rgba(0, 217, 255, 0.15);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
         }
 
-        .skill-category h4 {
-            color: var(--primary);
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-weight: 700;
-        }
-
-        .skill-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            font-size: 1.2rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-tag {
-            background: rgba(0, 217, 255, 0.15);
-            color: var(--primary);
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(0, 217, 255, 0.3);
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(0, 217, 255, 0.25);
-            transform: scale(1.05);
-        }
-
-        /* Enhanced Projects/Activities Grid */
-        .projects-grid, .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-        }
-
-        .project-card, .activity-card {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(78, 205, 196, 0.05));
-            border-radius: 24px;
-            padding: 2.5rem;
-            border: 1px solid var(--glass-border);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .project-card::before, .activity-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--gradient);
-        }
-
-        .project-card:hover, .activity-card:hover {
-            transform: translateY(-20px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0, 217, 255, 0.2);
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(78, 205, 196, 0.1));
-        }
-
-        .project-header, .activity-header {
+        .assignment-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 1.5rem;
         }
 
-        .project-icon, .activity-icon {
-            width: 70px;
-            height: 70px;
+        .assignment-icon {
+            width: 60px;
+            height: 60px;
             background: var(--gradient);
-            border-radius: 18px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            color: var(--dark);
-            box-shadow: 0 10px 20px rgba(0, 217, 255, 0.3);
+            font-size: 1.5rem;
+            color: var(--light);
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
         }
 
-        .status-badge {
-            background: var(--success);
-            color: var(--light);
-            padding: 0.4rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
+        .assignment-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
-        .status-badge.pending {
-            background: var(--warning);
+        .status-completed {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
-        .status-badge.draft {
-            background: var(--gray);
+        .status-in-progress {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.3);
         }
 
-        .status-badge.in-progress {
-            background: var(--accent);
+        .status-upcoming {
+            background: rgba(148, 163, 184, 0.2);
+            color: var(--gray-light);
+            border: 1px solid rgba(148, 163, 184, 0.3);
         }
 
-        .project-title, .activity-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
+        .assignment-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
             color: var(--light);
         }
 
-        .project-description, .activity-description {
+        .assignment-description {
             color: var(--gray-light);
             margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
-        .project-links {
+        .assignment-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .assignment-date {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .assignment-actions {
             display: flex;
             gap: 1rem;
         }
 
-        .project-link {
-            color: var(--gray);
-            font-size: 1.4rem;
-            transition: all 0.3s ease;
+        .action-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
             text-decoration: none;
-            padding: 0.8rem;
-            border-radius: 10px;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-        }
-
-        .project-link:hover {
-            color: var(--primary);
-            background: rgba(0, 217, 255, 0.1);
-            transform: scale(1.1);
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .tech-tag {
-            background: rgba(255, 107, 107, 0.15);
-            color: var(--secondary);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(255, 107, 107, 0.3);
+            font-size: 0.9rem;
             font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        .add-content {
-            text-align: center;
-            padding: 4rem 2rem;
-            border: 2px dashed rgba(0, 217, 255, 0.3);
-            border-radius: 24px;
-            background: rgba(0, 217, 255, 0.05);
-            color: var(--gray-light);
+        .btn-view {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-view:hover {
+            background: rgba(99, 102, 241, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-category {
+            background: var(--glass);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
 
-        .add-content:hover {
-            border-color: var(--primary);
-            background: rgba(0, 217, 255, 0.1);
-            transform: scale(1.02);
+        .resource-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
         }
 
-        .add-content i {
-            font-size: 3rem;
+        .resource-category h4 {
             color: var(--primary);
+            font-size: 1.3rem;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
-        .add-content h3 {
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .resource-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .resource-list a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .resource-list a:hover {
             color: var(--primary);
-            margin-bottom: 0.5rem;
         }
 
-        .add-content p {
-            margin: 0;
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .contact-info p {
+            color: var(--gray-light);
+            margin-bottom: 2rem;
             font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: var(--glass);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.2rem;
+            margin: 0 auto 1rem;
         }
 
         /* Footer */
@@ -800,12 +785,6 @@
             }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-15px); }
-            60% { transform: translateX(-50%) translateY(-8px); }
-        }
-
         .fade-in {
             opacity: 0;
             transform: translateY(50px);
@@ -829,7 +808,7 @@
                 gap: 4rem;
             }
 
-            .projects-grid, .activities-grid {
+            .assignments-grid {
                 grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
         }
@@ -841,7 +820,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(10, 14, 39, 0.95);
+                background: rgba(15, 23, 42, 0.95);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 2rem;
@@ -861,11 +840,11 @@
                 align-items: center;
             }
 
-            .projects-grid, .activities-grid {
+            .assignments-grid {
                 grid-template-columns: 1fr;
             }
 
-            .skills-grid {
+            .resources-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -874,32 +853,27 @@
             }
 
             .section-title {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
 
             .hero-title {
-                font-size: clamp(2.8rem, 8vw, 5rem);
+                font-size: clamp(2rem, 6vw, 3.5rem);
             }
 
-            .course-icon {
-                width: 280px;
-                height: 280px;
-                font-size: 6rem;
+            .profile-img {
+                width: 250px;
+                height: 250px;
             }
         }
 
         @media (max-width: 480px) {
             .hero-description {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .btn {
                 padding: 1rem 2rem;
                 font-size: 1rem;
-            }
-
-            .course-info {
-                padding: 1.5rem;
             }
         }
     </style>
@@ -910,14 +884,16 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">CSST101_</div>
+            <div>
+                <div class="logo">CSST101 Portfolio</div>
+                <div class="course-info">Advanced Presentation and Reasoning</div>
+            </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#activities">Activities</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Course</a></li>
                 <li><a href="#assignments">Assignments</a></li>
-                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
@@ -930,12 +906,589 @@
         <div class="hero-content">
             <div class="hero-badge">
                 <div class="status-dot"></div>
-                <span>Academic Portfolio • AY 2025-2026</span>
+                <span>Academic Year 2025-2026</span>
             </div>
             <h1 class="hero-title">CSST101</h1>
-            <p class="hero-subtitle">Advanced Presentation & Reasoning</p>
+            <p class="hero-subtitle">Advanced Presentation and Reasoning</p>
+            <p class="hero-course">Academic Portfolio</p>
             <p class="hero-description">
-                Showcasing my academic journey through advanced presentation techniques, 
-                logical reasoning methodologies, and critical thinking applications in computer science contexts.
+                A comprehensive collection of my academic work, projects, and learning journey 
+                in advanced presentation techniques and logical reasoning methodologies.
             </p>
-            <div class
+            <div class="cta-buttons">
+                <a href="#assignments" class="btn btn-primary">
+                    <i class="fas fa-book"></i>
+                    Explore My Work
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i>
+                    Course Overview
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Course Section -->
+    <section id="about" class="fade-in">
+        <h2 class="section-title">About the Course</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="images/me.jpg" alt="Jezreel R. Ramos" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h3>Student: <span class="highlight">Jezreel R. Ramos</span></h3>
+                <p>
+                    Welcome to my academic portfolio for <strong>CSST101: Advanced Presentation and Reasoning</strong>. 
+                    This course focuses on developing sophisticated presentation skills and logical reasoning 
+                    capabilities essential for professional and academic success.
+                </p>
+                <p>
+                    Throughout this course, I explore advanced techniques in public speaking, visual communication, 
+                    argumentative structure, and critical thinking. The portfolio showcases my progress and achievements 
+                    in mastering these essential academic and professional competencies.
+                </p>
+                <div class="course-info-box">
+                    <h4>
+                        <i class="fas fa-graduation-cap"></i>
+                        CSST101: Advanced Presentation and Reasoning
+                        <span class="year">AY 2025-2026</span>
+                    </h4>
+                    <p style="color: var(--gray); margin: 0;">
+                        Developing expertise in advanced presentation techniques, logical reasoning, 
+                        and effective communication strategies for academic and professional contexts.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="objectives-grid">
+            <div class="objective-card">
+                <h4>
+                    <div class="objective-icon"><i class="fas fa-presentation"></i></div>
+                    Presentation Mastery
+                </h4>
+                <p>Developing advanced skills in public speaking, visual aids design, and audience engagement techniques.</p>
+            </div>
+            <div class="objective-card">
+                <h4>
+                    <div class="objective-icon"><i class="fas fa-brain"></i></div>
+                    Critical Reasoning
+                </h4>
+                <p>Enhancing logical thinking, argument analysis, and systematic problem-solving methodologies.</p>
+            </div>
+            <div class="objective-card">
+                <h4>
+                    <div class="objective-icon"><i class="fas fa-comments"></i></div>
+                    Communication Skills
+                </h4>
+                <p>Mastering effective verbal and non-verbal communication strategies for diverse audiences.</p>
+            </div>
+            <div class="objective-card">
+                <h4>
+                    <div class="objective-icon"><i class="fas fa-chart-line"></i></div>
+                    Data Visualization
+                </h4>
+                <p>Learning to create compelling visual representations of complex information and data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assignments Section -->
+    <section id="assignments" class="fade-in">
+        <h2 class="section-title">Assignments & Activities</h2>
+        <div class="assignments-grid">
+            
+            <!-- Assignment 1 -->
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <div class="assignment-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="assignment-status status-completed">Completed</div>
+                </div>
+                <h3 class="assignment-title">Introduction Speech</h3>
+                <p class="assignment-description">
+                    A 5-minute introductory presentation focusing on personal background, academic goals, 
+                    and career aspirations with emphasis on confident delivery and audience connection.
+                </p>
+                <div class="assignment-meta">
+                    <span class="assignment-date">
+                        <i class="far fa-calendar"></i> Week 1-2
+                    </span>
+                    <span style="color: var(--success);">
+                        <i class="fas fa-check-circle"></i> Grade: A-
+                    </span>
+                </div>
+                <div class="assignment-actions">
+                    <a href="#" class="action-btn btn-view">
+                        <i class="fas fa-eye"></i> View Presentation
+                    </a>
+                </div>
+            </div>
+
+            <!-- Assignment 2 -->
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <div class="assignment-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="assignment-status status-completed">Completed</div>
+                </div>
+                <h3 class="assignment-title">Data Visualization Project</h3>
+                <p class="assignment-description">
+                    Creating compelling visual representations of statistical data using advanced charting 
+                    techniques and presenting findings to support a logical argument.
+                </p>
+                <div class="assignment-meta">
+                    <span class="assignment-date">
+                        <i class="far fa-calendar"></i> Week 3-4
+                    </span>
+                    <span style="color: var(--success);">
+                        <i class="fas fa-check-circle"></i> Grade: A
+                    </span>
+                </div>
+                <div class="assignment-actions">
+                    <a href="#" class="action-btn btn-view">
+                        <i class="fas fa-file-pdf"></i> View Report
+                    </a>
+                </div>
+            </div>
+
+            <!-- Assignment 3 -->
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <div class="assignment-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="assignment-status status-in-progress">In Progress</div>
+                </div>
+                <h3 class="assignment-title">Argumentative Analysis</h3>
+                <p class="assignment-description">
+                    Comprehensive analysis of logical fallacies and argument structures in contemporary debates, 
+                    with focus on identifying strengths and weaknesses in reasoning patterns.
+                </p>
+                <div class="assignment-meta">
+                    <span class="assignment-date">
+                        <i class="far fa-calendar"></i> Week 5-6
+                    </span>
+                    <span style="color: var(--warning);">
+                        <i class="fas fa-clock"></i> Due: Next Week
+                    </span>
+                </div>
+                <div class="assignment-actions">
+                    <a href="#" class="action-btn btn-view">
+                        <i class="fas fa-edit"></i> Work in Progress
+                    </a>
+                </div>
+            </div>
+
+            <!-- Assignment 4 -->
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <div class="assignment-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="assignment-status status-upcoming">Upcoming</div>
+                </div>
+                <h3 class="assignment-title">Group Debate Project</h3>
+                <p class="assignment-description">
+                    Collaborative debate on contemporary ethical issues in technology, requiring research, 
+                    logical argument construction, and effective team presentation skills.
+                </p>
+                <div class="assignment-meta">
+                    <span class="assignment-date">
+                        <i class="far fa-calendar"></i> Week 7-8
+                    </span>
+                    <span style="color: var(--gray-light);">
+                        <i class="fas fa-hourglass-start"></i> Scheduled
+                    </span>
+                </div>
+                <div class="assignment-actions">
+                    <a href="#" class="action-btn btn-view">
+                        <i class="fas fa-info-circle"></i> View Guidelines
+                    </a>
+                </div>
+            </div>
+
+            <!-- Assignment 5 -->
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <div class="assignment-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="assignment-status status-upcoming">Upcoming</div>
+                </div>
+                <h3 class="assignment-title">Innovation Pitch</h3>
+                <p class="assignment-description">
+                    A professional-style pitch presentation proposing an innovative solution to a real-world 
+                    problem, incorporating persuasive techniques and compelling visual design.
+                </p>
+                <div class="assignment-meta">
+                    <span class="assignment-date">
+                        <i class="far fa-calendar"></i> Week 9-10
+                    </span>
+                    <span style="color: var(--gray-light);">
+                        <i class="fas fa-hourglass-start"></i> Scheduled
+                    </span>
+                </div>
+                <div class="assignment-actions">
+                    <a href="#" class="action-btn btn-view">
+                        <i class="fas fa-info-circle"></i> View Requirements
+                    </a>
+                </div>
+            </div>
+
+            <!-- Assignment 6 -->
+            <div class="assignment-card">
+                <div class="assignment-header">
+                    <div class="assignment-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="assignment-status status-upcoming">Upcoming</div>
+                </div>
+                <h3 class="assignment-title">Final Portfolio Presentation</h3>
+                <p class="assignment-description">
+                    Comprehensive presentation showcasing learning progress, key insights, and personal growth 
+                    throughout the course with reflective analysis and future applications.
+                </p>
+                <div class="assignment-meta">
+                    <span class="assignment-date">
+                        <i class="far fa-calendar"></i> Week 11-12
+                    </span>
+                    <span style="color: var(--gray-light);">
+                        <i class="fas fa-trophy"></i> Final Project
+                    </span>
+                </div>
+                <div class="assignment-actions">
+                    <a href="#" class="action-btn btn-view">
+                        <i class="fas fa-star"></i> Final Project
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="fade-in">
+        <h2 class="section-title">Course Resources</h2>
+        <div class="resources-grid">
+            
+            <div class="resource-category">
+                <h4>
+                    <div class="objective-icon"><i class="fas fa-book"></i></div>
+                    Required Readings
+                </h4>
+                <ul class="resource-list">
+                    <li><a href="#">"The Art of Public Speaking" - Chapter 1-5</a></li>
+                    <li><a href="#">"Logic and Contemporary Rhetoric" - Selected Chapters</a></li>
+                    <li><a href="#">"Presentation Zen" - Design Principles</a></li>
+                    <li><a href="#">Course Handouts and Supplementary Materials</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-category">
+                <h4>
+                    <div class="objective-icon"><i class="fas fa-video"></i></div>
+                    Video Resources
+                </h4>
+                <ul class="resource-list">
+                    <li><a href="#">TED Talk Analysis Series</a></li>
+                    <li><a href="#">Advanced PowerPoint Techniques</a></li>
+                    <li><a href="#">Body Language and Non-verbal Communication</a></li>
+                    <li><a href="#">Logical Fallacies Video Series</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-category">
+                <h4>
+                    <div class="objective-icon"><i class="fas fa-tools"></i></div>
+                    Tools & Software
+                </h4>
+                <ul class="resource-list">
+                    <li><a href="#">Microsoft PowerPoint / Google Slides</a></li>
+                    <li><a href="#">Canva for Design</a></li>
+                    <li><a href="#">Prezi for Dynamic Presentations</a></li>
+                    <li><a href="#">OBS Studio for Recording</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-category">
+                <h4>
+                    <div class="objective-icon"><i class="fas fa-link"></i></div>
+                    Useful Links
+                </h4>
+                <ul class="resource-list">
+                    <li><a href="#">Course Learning Management System</a></li>
+                    <li><a href="#">Presentation Template Library</a></li>
+                    <li><a href="#">Logic and Reasoning Practice Exercises</a></li>
+                    <li><a href="#">Academic Writing Center</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>
+                    For questions about this portfolio, course collaboration, or academic discussions 
+                    related to CSST101, feel free to reach out through any of the following channels.
+                </p>
+            </div>
+            
+            <div class="contact-items">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <strong>Academic Email</strong><br>
+                        <a href="mailto:jezreelramoz@gmail.com" style="color: var(--gray-light); text-decoration: none;">jezreelramoz@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <strong>Student ID</strong><br>
+                        <span style="color: var(--gray-light);">CSST101-2025-001</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div>
+                        <strong>Office Hours</strong><br>
+                        <span style="color: var(--gray-light);">By Appointment</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <strong>Location</strong><br>
+                        <span style="color: var(--gray-light);">Philippines</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Jezreel R. Ramos - CSST101 Academic Portfolio</p>
+        <p style="margin-top: 0.8rem; color: var(--gray); font-size: 0.9rem;">
+            Advanced Presentation and Reasoning | Academic Year 2025-2026
+        </p>
+        <p style="margin-top: 0.5rem; color: var(--gray); font-size: 0.85rem;">
+            Dedicated to Academic Excellence and Continuous Learning
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in, .objective-card, .assignment-card, .resource-category').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Assignment card interactions
+        document.querySelectorAll('.assignment-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Action button functionality
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const assignmentTitle = this.closest('.assignment-card').querySelector('.assignment-title').textContent;
+                
+                // Add ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.cssText = `
+                    position: absolute;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${e.clientX - rect.left - size / 2}px;
+                    top: ${e.clientY - rect.top - size / 2}px;
+                `;
+                this.style.position = 'relative';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+                
+                // Show modal or navigate (placeholder functionality)
+                setTimeout(() => {
+                    alert(`Opening: ${assignmentTitle}\n\nThis would normally open the assignment details or submission page.`);
+                }, 200);
+            });
+        });
+
+        // Add ripple animation CSS
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Progress tracking for assignments
+        function updateProgress() {
+            const completed = document.querySelectorAll('.status-completed').length;
+            const total = document.querySelectorAll('.assignment-status').length;
+            const progress = (completed / total) * 100;
+            
+            console.log(`Course Progress: ${progress.toFixed(1)}% (${completed}/${total} assignments completed)`);
+        }
+
+        // Scroll to top functionality
+        let scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollToTopBtn.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50%;
+            color: var(--light);
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        `;
+
+        document.body.appendChild(scrollToTopBtn);
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+                scrollToTopBtn.style.visibility = 'visible';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+                scrollToTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize on load
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            updateProgress();
+            console.log('📚 CSST101 Academic Portfolio loaded successfully!');
+            console.log('👨‍🎓 Student: Jezreel R. Ramos');
+            console.log('📧 Contact: jezreelramoz@gmail.com');
+        });
+
+        // Set initial body opacity for smooth load
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+    </script>
+</body>
+</html>

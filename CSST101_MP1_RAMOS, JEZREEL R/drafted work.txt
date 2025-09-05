@@ -1,0 +1,87 @@
+Short Report Enhanced Mini Expert System – University Logic Rules
+Explanation of Rules Tested
+
+In this activity, we implemented a Mini Expert System using Python to simulate how propositional logic can be applied to real-world university scenarios. The system evaluates logical rules and logs results into a CSV file for record-keeping. Below are the rules tested
+
+Attendance Rule
+
+Logic If a student is late (P), then they must bring an excuse letter (Q).
+
+Represented as P → Q
+
+If the student is late without an excuse, the rule is violated; otherwise, it is satisfied.
+
+Grading Rule
+
+Logic If a student’s grade is ≥ 75 (P), then the student passes (Q).
+
+Represented as P → Q
+
+Ensures that only students who meet the grade requirement are marked as passing.
+
+Login System Rule
+
+Logic If the password entered is correct (P), then access is granted (Q).
+
+Represented as P → Q
+
+Incorrect passwords automatically lead to access denial.
+
+Bonus Points Rule
+
+Logic If a student has regular attendance (P), then they are eligible for bonus points (Q).
+
+Represented as P → Q
+
+Promotes consistent attendance by rewarding students.
+
+Extension Rule – Library Borrowing
+
+Logic If a student has a valid ID (P), then they are allowed to borrow books (Q).
+
+Represented as P → Q
+
+This was added as the custom extension rule, applying logic to library services.
+
+Screenshots of Program Runs
+
+(Insert here console screenshots of sample runs, showing at least three different students using various rules. Also include a screenshot of the generated logic_results.csv file.)
+
+Description of the New Rule Added
+
+The Library Borrowing Rule was the extension rule included in the system. This rule checks whether a student has a valid ID before allowing them to borrow books. It reflects a common university policy where possession of a valid ID is a requirement for accessing library services.
+
+This rule fits the logical structure P → Q, where
+
+P = Student has a valid ID.
+
+Q = Borrowing is allowed.
+
+If a student does not have a valid ID (P is false), the rule still holds true (vacuously true). However, if P is true but Q is false (i.e., the student has a valid ID but borrowing is denied), the rule is violated.
+
+Conclusion
+
+The Enhanced Mini Expert System successfully demonstrated how propositional logic can be applied in academic settings through rule-based decision-making. The system ensured that all results were automatically saved in a CSV file for analysis. By implementing the Attendance, Grading, Login, Bonus, and Library Borrowing rules, we were able to practice translating real-world conditions into logical implications.
+
+This activity reinforced understanding of how logical implication (P → Q) works and highlighted the practical use of expert systems in university management processes.
+
+V. Sample Assessment Questions (for Written Part) 1. Represent the following in propositional logic: a. “If a student is late, then they must bring an excuse letter.” b. “If a grade ≥ 75, then the student passes.” 2. Why is the rule P → Q considered satisfied when P is false? 3. Examine the following CSV excerpt: • What does each row represent? • Which logical implication failed and why?
+
+Here you go—clear and compact:
+
+Propositional forms
+a) Let L = “student is late,” E = “brings an excuse letter.”
+  L → E
+b) Let G = “grade ≥ 75,” P = “student passes.”
+  G → P
+
+Why P → Q is satisfied when P is false
+Because P → Q ≡ ¬P ∨ Q. If P is false, then ¬P is true, so the whole expression is true regardless of Q. Intuitively, the promise “if P then Q” isn’t broken when P never happens.
+
+CSV excerpt analysis
+• Each row is one rule evaluation with: timestamp, student name, rule checked, outcome.
+• Which implication failed and why?
+ – Row 1 (Juan Dela Cruz, Grading Rule, “Satisfied ✅”): the implication G → P held (grade met the cutoff, so pass).
+ – Row 2 (Ana Santos, Login Rule, “Access denied ❌”): the rule is CorrectPassword → AccessGranted. “Access denied” means Q is false and (by context) P is false (password incorrect). For P false, P → Q is still true (vacuously).
+ Therefore, no logical implication failed in the excerpt. Access was denied not because the implication was violated, but because the antecedent (correct password) wasn’t met. The only way P → Q fails is P true and Q false, which isn’t shown here.
+
